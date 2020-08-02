@@ -1,4 +1,8 @@
 **/data/**
 **/.ipynb_checkpoints/**
 **/__pycache__/**
-
+**/dumped/**
+**/model/**
+**/XLM/**
+**/.vscode/**
+**/*.h5
