@@ -1,0 +1,21 @@
+#!/bin/bash
+python -W ignore XLM/train.py \
+        --exp_name pretrain \
+        --dump_path ./dumped/ \
+        --reload_checkpoint ./dumped/pretrain/9m1wtr05i1/checkpoint.pth \
+        --data_path $PWD/data/processed/lm \
+        --lgs 'zh-en' \
+        --clm_steps '' \
+        --mlm_steps 'zh,en' \
+        --emb_dim 512 \
+        --n_layers 6 \
+        --n_heads 8 \
+        --dropout 0.1 \
+        --attention_dropout 0.1 \
+        --gelu_activation true \
+        --batch_size 24 \
+        --bptt 256 \
+        --optimizer adam,lr=0.00005 \
+        --epoch_size 200000 \
+        --validation_metrics _valid_mlm_ppl \
+        --stopping_criterion _valid_mlm_ppl,10
